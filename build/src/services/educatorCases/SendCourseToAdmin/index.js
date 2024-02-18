@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.sendCourseToAdminController = void 0;
+const MongoCoursesRepository_1 = require("../../../repositories/Implementations/MongoCoursesRepository");
+const SendCourseToAdminController_1 = require("./SendCourseToAdminController");
+const SendCourseToAdminUseCase_1 = require("./SendCourseToAdminUseCase");
+const mongoCourseRepository = new MongoCoursesRepository_1.MongoCourseRepository();
+const sendCourseToAdminUseCase = new SendCourseToAdminUseCase_1.SendCourseToAminUseCase(mongoCourseRepository);
+const sendCourseToAdminController = new SendCourseToAdminController_1.SendCourseToAdminController(sendCourseToAdminUseCase);
+exports.sendCourseToAdminController = sendCourseToAdminController;

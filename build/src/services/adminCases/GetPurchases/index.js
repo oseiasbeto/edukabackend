@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getPurchasesController = void 0;
+const MongoPurchasesRepository_1 = require("../../../repositories/Implementations/MongoPurchasesRepository");
+const GetPurchasesController_1 = require("./GetPurchasesController");
+const GetPurchasesUseCase_1 = require("./GetPurchasesUseCase");
+const mongoPurchasesRepository = new MongoPurchasesRepository_1.MongoPurchasesRepository();
+const getPurchasesUseCase = new GetPurchasesUseCase_1.GetPurchasesUseCase(mongoPurchasesRepository);
+const getPurchasesController = new GetPurchasesController_1.GetPurchasesController(getPurchasesUseCase);
+exports.getPurchasesController = getPurchasesController;

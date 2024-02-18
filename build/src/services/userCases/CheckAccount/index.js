@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.checkAccountController = void 0;
+const MongoUsersRepository_1 = require("../../../repositories/Implementations/MongoUsersRepository");
+const CheckAccounUseCase_1 = require("./CheckAccounUseCase");
+const CheckAccountControler_1 = require("./CheckAccountControler");
+const mongoUsersRepository = new MongoUsersRepository_1.MongoUsersRepository();
+const checkAccountUseCase = new CheckAccounUseCase_1.CheckAccountUseCase(mongoUsersRepository);
+const checkAccountController = new CheckAccountControler_1.CheckAccountController(checkAccountUseCase);
+exports.checkAccountController = checkAccountController;

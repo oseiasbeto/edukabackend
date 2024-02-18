@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.activeCourseController = void 0;
+const GmailProvider_1 = require("../../../providers/Implementations/GmailProvider");
+const MongoCoursesRepository_1 = require("../../../repositories/Implementations/MongoCoursesRepository");
+const MongoUsersRepository_1 = require("../../../repositories/Implementations/MongoUsersRepository");
+const ActiveCourseController_1 = require("./ActiveCourseController");
+const ActiveCourseUseCase_1 = require("./ActiveCourseUseCase");
+const mongoUsersRepository = new MongoUsersRepository_1.MongoUsersRepository();
+const mongoCoursesRepository = new MongoCoursesRepository_1.MongoCourseRepository();
+const gmailProvider = new GmailProvider_1.GmailProvider();
+const activeCourseUseCase = new ActiveCourseUseCase_1.ActivePurchaseUseCase(mongoUsersRepository, mongoCoursesRepository, gmailProvider);
+const activeCourseController = new ActiveCourseController_1.ActivePurchaseController(activeCourseUseCase);
+exports.activeCourseController = activeCourseController;

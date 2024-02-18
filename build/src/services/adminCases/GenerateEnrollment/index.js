@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateEnrollmentController = void 0;
+const GmailProvider_1 = require("../../../providers/Implementations/GmailProvider");
+const MongoCoursesRepository_1 = require("../../../repositories/Implementations/MongoCoursesRepository");
+const MongoEnrollmentRepository_1 = require("../../../repositories/Implementations/MongoEnrollmentRepository");
+const MongoPurchasesRepository_1 = require("../../../repositories/Implementations/MongoPurchasesRepository");
+const MongoUsersRepository_1 = require("../../../repositories/Implementations/MongoUsersRepository");
+const GenerateEnrollmentController_1 = require("./GenerateEnrollmentController");
+const GenerateEnrollmentUseCase_1 = require("./GenerateEnrollmentUseCase");
+const mongoUsersRepository = new MongoUsersRepository_1.MongoUsersRepository();
+const mongoCoursesRepository = new MongoCoursesRepository_1.MongoCourseRepository();
+const mongoEnrollmentsRepository = new MongoEnrollmentRepository_1.MongoEnrollmentsRepository();
+const mongoPurchasesRepository = new MongoPurchasesRepository_1.MongoPurchasesRepository();
+const gmailProvider = new GmailProvider_1.GmailProvider();
+const generateEnrollmentUseCase = new GenerateEnrollmentUseCase_1.GenerateEnrollmentUseCase(mongoUsersRepository, mongoCoursesRepository, mongoEnrollmentsRepository, mongoPurchasesRepository, gmailProvider);
+const generateEnrollmentController = new GenerateEnrollmentController_1.GenerateEnrollmentController(generateEnrollmentUseCase);
+exports.generateEnrollmentController = generateEnrollmentController;

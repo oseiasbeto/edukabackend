@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createCourseController = void 0;
+const MongoCoursesRepository_1 = require("../../../repositories/Implementations/MongoCoursesRepository");
+const CreateCourseController_1 = require("./CreateCourseController");
+const CreateCourseUseCase_1 = require("./CreateCourseUseCase");
+const mongoCoursesRepository = new MongoCoursesRepository_1.MongoCourseRepository();
+const createCourseCase = new CreateCourseUseCase_1.CreateCourseUseCase(mongoCoursesRepository);
+const createCourseController = new CreateCourseController_1.CreateCourseController(createCourseCase);
+exports.createCourseController = createCourseController;

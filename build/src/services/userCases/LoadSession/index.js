@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadSessionController = void 0;
+const MongoUsersRepository_1 = require("../../../repositories/Implementations/MongoUsersRepository");
+const LoadSessionController_1 = require("./LoadSessionController");
+const LoadSessionUseCase_1 = require("./LoadSessionUseCase");
+const mongoUsersRepository = new MongoUsersRepository_1.MongoUsersRepository();
+const loadSessionUseCase = new LoadSessionUseCase_1.LoadSessionUseCase(mongoUsersRepository);
+const loadSessionController = new LoadSessionController_1.LoadSessionController(loadSessionUseCase);
+exports.loadSessionController = loadSessionController;

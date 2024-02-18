@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createUserController = void 0;
+const GmailProvider_1 = require("../../../providers/Implementations/GmailProvider");
+const MongoUsersRepository_1 = require("../../../repositories/Implementations/MongoUsersRepository");
+const CreateUserController_1 = require("./CreateUserController");
+const CreateUserUseCase_1 = require("./CreateUserUseCase");
+const mongoUsersRepository = new MongoUsersRepository_1.MongoUsersRepository();
+const gmailProvider = new GmailProvider_1.GmailProvider();
+const createUserUseCase = new CreateUserUseCase_1.CreateUserUseCase(mongoUsersRepository, gmailProvider);
+const createUserController = new CreateUserController_1.CreateUserController(createUserUseCase);
+exports.createUserController = createUserController;

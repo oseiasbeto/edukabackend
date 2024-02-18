@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.forgotPasswordController = void 0;
+const GmailProvider_1 = require("../../../providers/Implementations/GmailProvider");
+const MongoUsersRepository_1 = require("../../../repositories/Implementations/MongoUsersRepository");
+const ForgotPasswordController_1 = require("./ForgotPasswordController");
+const ForgotPasswordUseCase_1 = require("./ForgotPasswordUseCase");
+const mongoUsersRepository = new MongoUsersRepository_1.MongoUsersRepository();
+const gmailProvider = new GmailProvider_1.GmailProvider();
+const forgotPasswordUseCase = new ForgotPasswordUseCase_1.ForgotPasswordUseCase(mongoUsersRepository, gmailProvider);
+const forgotPasswordController = new ForgotPasswordController_1.ForgotPasswordController(forgotPasswordUseCase);
+exports.forgotPasswordController = forgotPasswordController;

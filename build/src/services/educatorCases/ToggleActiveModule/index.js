@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.toggleActiveModuleController = void 0;
+const MongoModulesRepository_1 = require("../../../repositories/Implementations/MongoModulesRepository");
+const ToggleActiveModuleController_1 = require("./ToggleActiveModuleController");
+const ToggleActiveModuleUseCase_1 = require("./ToggleActiveModuleUseCase");
+const mongoModulesRepository = new MongoModulesRepository_1.MongoModulesRepository();
+const toggleActiveModuleUseCase = new ToggleActiveModuleUseCase_1.ToggleActiveModuleUseCase(mongoModulesRepository);
+const toggleActiveModuleController = new ToggleActiveModuleController_1.ToggleActiveModuleController(toggleActiveModuleUseCase);
+exports.toggleActiveModuleController = toggleActiveModuleController;

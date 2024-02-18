@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getMyEnrollmentsController = void 0;
+const MongoEnrollmentRepository_1 = require("../../../repositories/Implementations/MongoEnrollmentRepository");
+const GetMyEnrollmentsController_1 = require("./GetMyEnrollmentsController");
+const GetMyEnrollmentsUseCase_1 = require("./GetMyEnrollmentsUseCase");
+const mongoEnrollmentsRepository = new MongoEnrollmentRepository_1.MongoEnrollmentsRepository();
+const getMyEnrollmentsUseCase = new GetMyEnrollmentsUseCase_1.GetMyEnrollmentsUseCase(mongoEnrollmentsRepository);
+const getMyEnrollmentsController = new GetMyEnrollmentsController_1.GetMyEnrollmentsController(getMyEnrollmentsUseCase);
+exports.getMyEnrollmentsController = getMyEnrollmentsController;
